@@ -1,0 +1,15 @@
+ENTRY(_start)
+SECTIONS {
+  . = 0x400000;
+
+  .text : {
+    *(.text*)
+    *(.rodata*)
+  }
+
+  /DISCARD/ : {
+    *(.eh_frame*)
+    *(.comment*)
+    *(.note*)
+  }
+}
