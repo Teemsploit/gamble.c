@@ -1,15 +1,23 @@
-ENTRY(_start)
-SECTIONS {
-  . = 0x400000;
+PHDRS
+{
+  text PT_LOAD FILEHDR PHDRS ;
+}
+
+SECTIONS
+{
+  . = 0x400000 + SIZEOF_HEADERS;
 
   .text : {
     *(.text*)
     *(.rodata*)
-  }
+    *(.data*)
+  } :text
 
   /DISCARD/ : {
-    *(.eh_frame*)
-    *(.comment*)
+    *(.comment)
     *(.note*)
+    *(.eh_frame*)
+    *(.gnu*)
+    *(.hash)
   }
 }
