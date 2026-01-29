@@ -5,12 +5,13 @@ PHDRS
 
 SECTIONS
 {
-  . = 0x400000 + SIZEOF_HEADERS;
+  . = 0x08048000 + SIZEOF_HEADERS;
 
   .text : {
     *(.text*)
     *(.rodata*)
     *(.data*)
+    *(.bss*)
   } :text
 
   /DISCARD/ : {
@@ -18,6 +19,5 @@ SECTIONS
     *(.note*)
     *(.eh_frame*)
     *(.gnu*)
-    *(.hash)
   }
 }
