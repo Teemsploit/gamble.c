@@ -30,7 +30,7 @@ Use the included linker script `tiny.ld` and compile with:
 gcc -Os -nostdlib -fno-ident -fno-stack-protector -fno-pie -no-pie \
     -fomit-frame-pointer -fno-asynchronous-unwind-tables -fno-unwind-tables \
     -Wl,-T,tiny.ld -Wl,--build-id=none -Wl,-nmagic \
-    tiny.c -o tiny && strip -s tiny
+    tiny.c -o tiny && sstrip tiny
 ```
 
 ---
