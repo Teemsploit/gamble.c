@@ -27,7 +27,7 @@ A minimal **Linux x86-64 terminal game** written **without libc**, using only **
 Use the included linker script `tiny.ld` and compile with:
 
 ```sh
-gcc -Os -nostdlib -fno-ident -fno-stack-protector -fno-pie -no-pie \
+gcc -m32 -Os -nostdlib -fno-ident -fno-stack-protector -fno-pie -no-pie \
     -fomit-frame-pointer -fno-asynchronous-unwind-tables -fno-unwind-tables \
     -Wl,-T,tiny.ld -Wl,--build-id=none -Wl,-nmagic \
     tiny.c -o tiny && sstrip tiny
