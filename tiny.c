@@ -35,7 +35,7 @@ void _start() {
         }
         __asm__ volatile ("rdtsc" : "=a"(t2) : : "edx");
 
-        if ((t2 - t1) % 10 > 7) {
+        if ((t2 - t1) % 11 > 7) {
             balance += 50;
             sc(SYS_WRITE, 1, (int)"W\n", 2);
         } else {
